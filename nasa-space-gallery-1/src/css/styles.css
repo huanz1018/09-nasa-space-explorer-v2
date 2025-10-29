@@ -1,0 +1,78 @@
+/* styles.css */
+
+/* Basic reset for margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Black background for space theme */
+    color: #fff; /* White text for contrast */
+}
+
+/* Gallery container styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Space between images */
+    padding: 20px; /* Padding around the gallery */
+}
+
+/* Individual image styles */
+.gallery img {
+    width: 100%; /* Full width of the grid item */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.3s; /* Smooth zoom effect */
+}
+
+/* Hover effect for images */
+.gallery img:hover {
+    transform: scale(1.05); /* Zoom in on hover */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    z-index: 1000; /* On top of other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    justify-content: center; /* Center modal content */
+    align-items: center; /* Center modal content */
+}
+
+/* Modal content styles */
+.modal-content {
+    background-color: #fff; /* White background for modal */
+    padding: 20px; /* Padding inside modal */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 600px; /* Max width of modal */
+    width: 90%; /* Responsive width */
+}
+
+/* Loading message styles */
+.loading {
+    position: fixed; /* Fixed position */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    font-size: 24px; /* Larger font size */
+    color: #fff; /* White text */
+}
+
+/* NASA branding styles */
+.branding {
+    text-align: center; /* Center the branding */
+    margin: 20px 0; /* Margin above and below */
+}
+
+.branding img {
+    width: 150px; /* Fixed width for NASA logo */
+}

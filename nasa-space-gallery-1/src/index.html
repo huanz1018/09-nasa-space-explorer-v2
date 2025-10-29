@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Space Gallery</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the CSS file for styling -->
+</head>
+<body>
+    <header>
+        <h1>NASA Space Gallery</h1> <!-- Main title of the gallery -->
+        <p id="loading-message">Loading images...</p> <!-- Loading message displayed while fetching data -->
+    </header>
+    <main>
+        <section id="gallery" class="gallery"> <!-- Section for the image gallery -->
+            <!-- Images will be dynamically inserted here -->
+        </section>
+    </main>
+    <div id="modal" class="modal"> <!-- Modal for displaying image details -->
+        <span class="close">&times;</span> <!-- Close button for the modal -->
+        <img class="modal-content" id="modal-image"> <!-- Image displayed in the modal -->
+        <div id="modal-caption"></div> <!-- Caption for the image in the modal -->
+    </div>
+    <script src="js/app.js"></script> <!-- Link to the main JavaScript file -->
+    <script src="js/api.js"></script> <!-- Link to the API interaction file -->
+    <script src="js/ui.js"></script> <!-- Link to the UI management file -->
+    <script src="js/modal.js"></script> <!-- Link to the modal functionality file -->
+    <script src="js/facts.js"></script> <!-- Link to the random facts file -->
+</body>
+</html>
