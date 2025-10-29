@@ -34,4 +34,9 @@ const init = () => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', init);
+// If the document is already parsed, run init immediately; otherwise wait for DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

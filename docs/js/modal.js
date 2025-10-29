@@ -102,10 +102,14 @@ const closeModal = () => {
 };
 
 // Close when clicking the close button or the overlay (outside inner content)
-closeModalButton.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
+if (closeModalButton) {
+    closeModalButton.addEventListener('click', closeModal);
+}
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+}
 
 // Close on Escape key
 document.addEventListener('keydown', (e) => {
