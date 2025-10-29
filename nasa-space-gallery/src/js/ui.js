@@ -36,6 +36,7 @@ const renderGallery = (items) => {
             if (item.thumbnail) {
                 const img = document.createElement('img');
                 img.src = item.thumbnail;
+                img.loading = 'lazy';
                 img.alt = item.title;
                 img.classList.add('gallery-image');
                 mediaWrapper.appendChild(img);
@@ -48,6 +49,7 @@ const renderGallery = (items) => {
         } else {
             const img = document.createElement('img');
             img.src = item.url || item.thumbnail || '';
+            img.loading = 'lazy';
             img.alt = item.title;
             img.classList.add('gallery-image');
             mediaWrapper.appendChild(img);
@@ -66,9 +68,17 @@ const renderGallery = (items) => {
     h3.textContent = item.title || '';
     titleEl.appendChild(h3);
 
-    const dateEl = document.createElement('div');
-    dateEl.classList.add('date');
-    dateEl.textContent = item.date || '';
+        const dateEl = document.createElement('div');
+        dateEl.classList.add('date');
+        dateEl.textContent = item.date || '';
+
+        // small credit line under title if available
+        if (item.credit) {
+            const creditEl = document.createElement('div');
+            creditEl.classList.add('credit');
+            creditEl.textContent = item.credit;
+            titleEl.appendChild(creditEl);
+        }
 
     metaRow.appendChild(titleEl);
     metaRow.appendChild(dateEl);

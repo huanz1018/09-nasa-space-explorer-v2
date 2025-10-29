@@ -23,6 +23,7 @@ const fetchSpaceImages = async () => {
                 url: isVideo ? item.url : (item.hdurl || item.url || ''),
                 // Some video entries include a thumbnail_url field
                 thumbnail: item.thumbnail_url || (isVideo ? null : (item.url || null)),
+                credit: item.copyright || '',
                 explanation: item.explanation || '',
                 mediaType: item.media_type || 'image'
             };

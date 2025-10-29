@@ -58,29 +58,47 @@ const openModal = (item) => {
         contentContainer.appendChild(img);
     }
 
-    // Caption with title, date and explanation
+    // Caption with title, date, credit and explanation
     const title = document.createElement('h2');
     title.textContent = item.title || '';
-    const date = document.createElement('p');
+
+    const metaWrap = document.createElement('div');
+    metaWrap.classList.add('modal-meta-wrap');
+
+    const date = document.createElement('div');
     date.classList.add('modal-date');
     date.textContent = item.date ? `Date: ${item.date}` : '';
+
+    const credit = document.createElement('div');
+    credit.classList.add('modal-credit');
+    credit.textContent = item.credit ? `Credit: ${item.credit}` : '';
+
+    metaWrap.appendChild(date);
+    if (credit.textContent) metaWrap.appendChild(credit);
+
     const explanation = document.createElement('p');
     explanation.classList.add('modal-explanation');
     explanation.textContent = item.explanation || '';
 
     captionEl.appendChild(title);
-    captionEl.appendChild(date);
+    captionEl.appendChild(metaWrap);
     captionEl.appendChild(explanation);
 
-    modal.classList.add('open');
+    // Show modal and trigger transitions
     modal.style.display = 'flex';
+    // allow the browser to render the display change, then add the class to start CSS transitions
+    requestAnimationFrame(() => modal.classList.add('open'));
 };
 
 // Function to close the modal
 const closeModal = () => {
+    // remove open class to trigger closing transitions, then hide after transition
     modal.classList.remove('open');
-    modal.style.display = 'none';
-    clearModal();
+    // wait for CSS transition to finish before setting display none and clearing content
+    setTimeout(() => {
+        modal.style.display = 'none';
+        clearModal();
+    }, 260);
 };
 
 // Close when clicking the close button or the overlay (outside inner content)
